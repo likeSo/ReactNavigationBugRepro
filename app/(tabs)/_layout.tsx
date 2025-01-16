@@ -23,9 +23,13 @@ export default function TabLayout() {
   return (
     <MaterialTopTabs
       screenOptions={{
-        tabBarItemStyle: { width: 'auto' },
+        // change to width: 'auto' to reproduce wrong transform bug
+        tabBarItemStyle: { width: 180 },
         tabBarIndicator: ({ state, ...props }) => (
-          <TabBarIndicator {...props} navigationState={state}>
+          <TabBarIndicator {...props} navigationState={state} 
+          // Uncommend next line to reproduce wrong x position bug
+          // style={{}}
+          >
             <View style={styles.triangle} />
           </TabBarIndicator>
         ),
